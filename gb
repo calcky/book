@@ -1,0 +1,16 @@
+#!/bin/bash
+
+eval `ssh-agent `
+ssh-add /home/sdn/captain/.ssh/id_rsa_github
+case $1 in
+	"push") ;;
+	"pull") ;;
+	"fetch") ;;
+	"rebase") ;;
+	"merge");;
+	*) 
+		echo "command not found"
+		exit;;
+esac
+git $@
+exit
